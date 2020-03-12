@@ -12,7 +12,7 @@ export default class ErrorToast extends Component {
   }
   componentDidMount() {
     this.timer = setTimeout(() => {
-      this.props.clearError;
+      this.props.clearError();
     }, 3000);
   }
 

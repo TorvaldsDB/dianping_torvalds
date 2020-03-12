@@ -1,6 +1,7 @@
 import url from '../../utils/url';
-import { schema } from './entities/products';
 import { FETCH_DATA } from '../middleware/api';
+import { schema } from './entities/products';
+
 export const types = {
   // 获取猜你喜欢请求
   FETCH_LIKES_REQUEST: 'HOME/FETCH_LIKES_REQUEST',
@@ -34,10 +35,13 @@ const fetchLikes = endpoint => ({
 const reducer = (state = {}, action) => {
   switch (action.type) {
     case types.FETCH_LIKES_REQUEST:
+      return state;
     // todo
     case types.FETCH_LIKES_SUCCESS:
+      return state;
     // todo
     case types.FETCH_LIKES_FAILURE:
+      return state;
     // todo
     default:
       return state;

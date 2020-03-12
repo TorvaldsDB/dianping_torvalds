@@ -1,9 +1,10 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import ErrorToast from '../../components/ErrorToast';
-import './style.css';
 import { actions as appActions, getError } from '../../redux/modules/app';
+import Home from '../Home';
+import './style.css';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
     } = this.props;
     return (
       <div className='App'>
+        <Home />
         {error ? (
           <ErrorToast msg={error} clearError={clearError}></ErrorToast>
         ) : null}
