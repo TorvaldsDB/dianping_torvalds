@@ -11,3 +11,5 @@ const rootReducer = combineReducers({
   products,
   shops
 });
+
+export default rootReducer;
