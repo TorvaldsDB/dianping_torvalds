@@ -22,7 +22,7 @@ export default store => next => action => {
   if (!Array.isArray(types) || types.length !== 3) {
     throw new Error('需要指定一个包含了 3 个 action type 的数组');
   }
-  if (types.any(type => typeof type === 'string')) {
+  if (!types.every(type => typeof type === 'string')) {
     throw new Error('action type 必须是为字符串类型');
   }
 
