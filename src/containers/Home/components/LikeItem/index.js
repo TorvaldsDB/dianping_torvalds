@@ -13,7 +13,7 @@ export default class LikeItem extends Component {
       saleDesc
     } = this.props.data;
     return (
-      <a className='likeItem' href>
+      <a className='likeItem' href='/'>
         <div className='likeItem__picContainer'>
           <div className='likeItem__picTag'>{tag}</div>
           <img alt='' className='likeItem__pic' src={picture} />

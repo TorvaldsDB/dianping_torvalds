@@ -88,7 +88,7 @@ export default class LikeList extends Component {
         {loadTimes < 3 ? (
           <Loading />
         ) : (
-          <a className='likeList__viewAll' href>
+          <a className='likeList__viewAll' href='/'>
             查看更多
           </a>
         )}
