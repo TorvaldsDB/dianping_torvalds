@@ -4,11 +4,13 @@ import ShopInfo from './components/ShopInfo';
 import Detail from './components/Detail';
 import Remark from './components/Remark';
 import BuyButton from './components/BuyButton';
+import Header from '../../components/Header';
 
-export default class ProductDetail extends Component {
+class ProductDetail extends Component {
   render() {
     return (
       <div>
+        <Header title='团购详情' onBack={this.handleBack} grey />
         <ProductOverview />
         <ShopInfo />
         <Detail />
@@ -17,4 +19,8 @@ export default class ProductDetail extends Component {
       </div>
     );
   }
+
+  handleBack = () => {};
 }
+
+export default ProductDetail;
