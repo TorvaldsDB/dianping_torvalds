@@ -11,7 +11,7 @@ export default reducer;
 
 // selectors
 export const getProductDetail = (state, id) => {
-  const product = state.entities.product[id];
+  const product = state.entities.products[id];
   return product && product.detail && product.purchaseNotes ? product : null;
 };
 

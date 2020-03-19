@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import LikeItem from '../LikeItem';
-import './style.css';
 import Loading from '../../../../components/Loading';
+import './style.css';
 
-export default class LikeList extends Component {
+class LikeList extends Component {
   constructor(props) {
     super(props);
     this.myRef = React.createRef();
     this.removeListener = false;
   }
+
   render() {
     const { data, pageCount } = this.props;
     return (
@@ -16,15 +17,13 @@ export default class LikeList extends Component {
         <div className='likeList__header'>猜你喜欢</div>
         <div className='likeList__list'>
           {data.map((item, index) => {
-            return <LikeItem key={item.id + index} data={item} />;
+            return <LikeItem key={index} data={item} />;
           })}
         </div>
         {pageCount < 3 ? (
           <Loading />
         ) : (
-          <a className='likeList__viewAll' href='/'>
-            查看更多
-          </a>
+          <a className='likeList__viewAll'>查看更多</a>
         )}
       </div>
     );
@@ -33,6 +32,7 @@ export default class LikeList extends Component {
   componentDidMount() {
     if (this.props.pageCount < 3) {
       document.addEventListener('scroll', this.handleScroll);
+    } else {
       this.removeListener = true;
     }
     if (this.props.pageCount === 0) {
@@ -41,19 +41,19 @@ export default class LikeList extends Component {
   }
 
   componentDidUpdate() {
-    if (!this.removeListener && this.props.pageCount >= 3) {
+    if (this.props.pageCount >= 3 && !this.removeListener) {
       document.removeEventListener('scroll', this.handleScroll);
       this.removeListener = true;
     }
   }
 
-  componentWillMount() {
+  componentWillUnmount() {
     if (!this.removeListener) {
       document.removeEventListener('scroll', this.handleScroll);
     }
   }
 
-  // 处理屏幕滚动事件, 实现加载更多的效果
+  // 处理屏幕滚动事件，实现加载更多的效果
   handleScroll = () => {
     const scrollTop =
       document.documentElement.scrollTop || document.body.scrollTop;
@@ -65,3 +65,5 @@ export default class LikeList extends Component {
     }
   };
 }
+
+export default LikeList;
