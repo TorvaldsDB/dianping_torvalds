@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 class Discount extends Component {
@@ -14,7 +15,11 @@ class Discount extends Component {
         <div className='discount__content'>
           {data.map((item, index) => {
             return (
-              <a key={item.id} className='discount__item' href='/'>
+              <Link
+                key={item.id}
+                to={`/detail/${item.id}`}
+                className='discount__item'
+              >
                 <div className='discount__itemPic'>
                   <img width='100%' height='100%' src={item.picture} alt='' />
                 </div>
@@ -25,7 +30,7 @@ class Discount extends Component {
                   </ins>
                   <del className='discount__itemOldPrice'>{item.oldPrice}</del>
                 </div>
-              </a>
+              </Link>
             );
           })}
         </div>
