@@ -1,6 +1,6 @@
 import url from '../../utils/url';
 import { FETCH_DATA } from '../middleware/api';
-import { schema as keywordSchema } from './entities/keywords';
+import { schema as keywordSchema, getKeywordById } from './entities/keywords';
 import { combineReducers } from 'redux';
 
 export const types = {
@@ -54,7 +54,7 @@ export const actions = {
   // 根据输入获取相关关键词
   loadRelatedKeywords: text => {
     return (dispatch, getState) => {
-      const { relatedKeywords } = getState.search;
+      const { relatedKeywords } = getState().search;
       if (relatedKeywords[text]) {
         return null;
       }
@@ -178,6 +178,7 @@ const historyKeywords = (state = initialState.historyKeywords, action) => {
         if (item !== action.text) {
           return true;
         }
+        return false;
       });
       return [action.text, ...data];
     case types.CLEAR_HISTORY_KEYWORDS:
@@ -195,3 +196,34 @@ const reducer = combineReducers({
 });
 
 export default reducer;
+
+// selectors
+export const getPopularKeywords = state => {
+  return state.search.popularKeywords.ids.map(id => {
+    return getKeywordById(state, id);
+  });
+};
+
+export const getRelatedKeywords = state => {
+  const text = state.search.inputText;
+  if (!text || text.trim().length === 0) {
+    return [];
+  }
+  const relatedKeywords = state.search.relatedKeywords[text];
+  if (!relatedKeywords) {
+    return [];
+  }
+  return relatedKeywords.ids.map(id => {
+    return getKeywordById(state, id);
+  });
+};
+
+export const getInputText = state => {
+  return state.search.inputText;
+};
+
+export const getHistoryKeywords = state => {
+  return state.search.historyKeywords.map(id => {
+    return getKeywordById(state, id);
+  });
+};
