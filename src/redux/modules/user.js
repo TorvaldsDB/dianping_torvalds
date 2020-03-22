@@ -2,10 +2,10 @@ import url from '../../utils/url';
 import { FETCH_DATA } from '../middleware/api';
 import {
   schema,
-  USED_TYPE,
   TO_PAY_TYPE,
   AVAILABLE_TYPE,
-  REFUND_TYPE
+  REFUND_TYPE,
+  getOrderById
 } from './entities/orders';
 import { combineReducers } from 'redux';
 
@@ -103,3 +103,15 @@ const reducer = combineReducers({
 });
 
 export default reducer;
+
+// selectors
+export const getCurrentTab = state => state.user.currentTab;
+
+export const getOrders = state => {
+  const key = ['ids', 'toPayIds', 'availableIds', 'refundIds'][
+    state.user.currentTab
+  ];
+  return state.user.orders[key].map(id => {
+    return getOrderById(state, id);
+  });
+};
