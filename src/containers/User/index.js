@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import UserMain from './components/UserMain';
 
 export default class User extends Component {
   render() {
-    return <div>个人中心页</div>;
+    return (
+      <div>
+        <UserMain />
+      </div>
+    );
   }
 }
