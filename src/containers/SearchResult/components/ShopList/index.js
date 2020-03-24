@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ShopItem from '../ShopItem';
 import './style.css';
 
