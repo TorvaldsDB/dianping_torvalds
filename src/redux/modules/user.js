@@ -5,7 +5,6 @@ import {
   TO_PAY_TYPE,
   AVAILABLE_TYPE,
   REFUND_TYPE,
-  getOrderById,
   getAllOrders,
   types as orderTypes,
   actions as orderActions
@@ -70,7 +69,7 @@ export const actions = {
   // 获取订单列表
   loadOrders: () => {
     return (dispatch, getState) => {
-      const { ids, fetched } = getState().user.orders;
+      const { fetched } = getState().user.orders;
       if (fetched) {
         return null;
       }
