@@ -3,12 +3,7 @@ import './style.css';
 
 class PurchaseForm extends Component {
   render() {
-    const {
-      product: { currentPrice },
-      quantity,
-      phone
-    } = this.props;
-    const totalPrice = (currentPrice * quantity).toFixed(1);
+    const { quantity, phone, totalPrice } = this.props;
     return (
       <div className='purchaseForm'>
         <div className='purchaseForm__wrapper'>
@@ -77,7 +72,7 @@ class PurchaseForm extends Component {
 
   handleChange = e => {
     const quantity = e.target.value;
-    this.props.onSetQuantity(Number.parseInt(quantity));
+    this.props.onSetQuantity(Number.parseInt(quantity, 10));
   };
 
   handleClick = () => {
