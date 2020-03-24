@@ -51,7 +51,7 @@ class PurchaseForm extends Component {
             <span className='purchaseForm__desc'>支持过期退</span>
           </li>
         </ul>
-        <a className='purchaseForm__submit' onClick={this.handleClick}>
+        <a className='purchaseForm__submit' onClick={this.handleClick} href='/'>
           提交订单
         </a>
       </div>
