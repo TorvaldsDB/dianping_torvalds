@@ -19,3 +19,7 @@ yarn install
 ```shell
 yarn start
 ```
+
+As below demonstrating:
+
+![dianping](./public/dianping.gif)
