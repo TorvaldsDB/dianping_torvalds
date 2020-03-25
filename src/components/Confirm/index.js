@@ -8,10 +8,10 @@ const Confirm = props => {
       <div className='confirm__alert'>
         <div className='confirm__content'>{content}</div>
         <div className='confirm__btns'>
-          <a className='confirm__btn' onClick={onCancel} href='/'>
+          <a className='confirm__btn' onClick={onCancel} href='javascript:;'>
             {cancelText}
           </a>
-          <a className='confirm__btn' onClick={onConfirm} href='/'>
+          <a className='confirm__btn' onClick={onConfirm} href='javascript:;'>
             {confirmText}
           </a>
         </div>

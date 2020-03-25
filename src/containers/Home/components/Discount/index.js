@@ -6,7 +6,7 @@ export default props => {
   const { data } = props;
   return (
     <div className='discount'>
-      <a className='discount__header' href='/'>
+      <a className='discount__header' href='javascript:;'>
         <span className='discount__title'>超值特惠</span>
         <span className='discount__more'>更多优惠</span>
         <span className='discount__arrow' />

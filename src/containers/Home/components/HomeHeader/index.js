@@ -6,7 +6,7 @@ export default () => {
   return (
     <div className='homeHeader'>
       <header className='homeHeader__wrapper'>
-        <a className='homeHeader__city' href='/'>
+        <a className='homeHeader__city' href='javascript:;'>
           北京
         </a>
         <Link to='/search' className='homeHeader__search'>

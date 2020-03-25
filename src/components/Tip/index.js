@@ -8,7 +8,7 @@ export default props => {
       <div className='tip__alert'>
         <div className='tip__content'>{message}</div>
         <div className='tip__btns'>
-          <a className='tip__btn' onClick={onClose} href='/'>
+          <a className='tip__btn' onClick={onClose} href='javascript:;'>
             确定
           </a>
         </div>

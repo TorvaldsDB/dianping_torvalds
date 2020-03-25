@@ -23,10 +23,10 @@ class LikeList extends Component {
         {pageCount < 3 ? (
           <Loading />
         ) : (
-          <a className='likeList__viewAll' href='/'>
-            查看更多
-          </a>
-        )}
+            <a className='likeList__viewAll' href='javascript:;'>
+              查看更多
+            </a>
+          )}
       </div>
     );
   }
